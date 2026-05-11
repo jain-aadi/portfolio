@@ -49,10 +49,10 @@
 	</div>
 </section>
 
-<section id="about" class="h-24"></section>
+<!-- <section id="about" class="h-24"></section> -->
 
 <!-- div for some extra space between sections -->
-<div class="h-24"></div> 
+<!-- <div class="h-24"></div>  -->
 
 <section id="projects" class="relative overflow-hidden px-6 py-16 sm:px-8 lg:px-10">
 	<div class="mx-auto max-w-7xl">
@@ -113,7 +113,7 @@
 </section>
 
 <!-- div for some extra space between sections -->
-<div class="h-24"></div> 
+<!-- <div class="h-24"></div>  -->
 
 <section id="contact" class="relative overflow-hidden px-6 py-16 sm:px-8 lg:px-10">
 	<div class="mx-auto max-w-7xl">
