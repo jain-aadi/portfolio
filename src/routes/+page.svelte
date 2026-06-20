@@ -1,154 +1,195 @@
 <script lang="ts">
-
+    // No extra imports needed, pure Tailwind and inline styles for the Dota font feel
 </script>
 
-<section id="home" class="relative overflow-hidden px-6 py-12 sm:px-8 lg:px-10">
-	<div class="pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-indigo-100 opacity-70 blur-3xl"></div>
-	<div class="mx-auto flex max-w-7xl flex-col gap-12 lg:flex-row lg:items-center mt-14">
-		<div class="lg:w-1/2 space-y-8 group relative">
+<style>
+    /* Mimicking Dota's serif header font (Trajan-like) */
+    .font-dota {
+        font-family: "Cinzel", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    }
+</style>
+
+<!-- PORTRAIT / HERO SECTION -->
+<section id="home" class="relative overflow-hidden border-b border-neutral-800 px-6 pt-24 pb-20 sm:px-8 lg:px-12 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-neutral-800 via-neutral-950 to-neutral-950">
+    
+    <!-- Red glowing ambient background -->
+    <div class="absolute left-1/2 top-0 h-96 w-[800px] -translate-x-1/2 rounded-full bg-red-900/10 blur-[100px] pointer-events-none"></div>
+
+    <div class="mx-auto flex max-w-5xl flex-col lg:flex-row lg:items-center gap-12 relative z-10">
+        
+        <div class="flex-1">
+            <h2 class="text-sm font-bold tracking-[0.3em] text-red-500 uppercase mb-4">Level 25 Grandmaster</h2>
+            <h1 class="font-dota text-5xl font-bold tracking-wide text-neutral-100 sm:text-7xl drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">
+                AADITYA JAIN
+            </h1>
+            <p class="font-dota mt-2 text-2xl text-amber-500 italic drop-shadow-md">The Systems Architect</p>
             
-            <img src="/sol.svg" alt="curating solutions arrow" class="pointer-events-none absolute -right-30 -top-2 hidden lg:block h-20 w-auto" />
-			<div class="inline-flex items-center gap-3 px-4 py-1 text-2xl uppercase text-slate-900 font-medium">
-				<span class="h-2 w-2 rounded-full bg-indigo-500"></span>
-				A a d i
-			</div>
+            <p class="mt-6 max-w-xl text-lg leading-relaxed text-neutral-400">
+                A highly elusive backend engineer. Bypasses high-level abstractions to construct raw TCP/IP sockets. Specializes in low-latency systems and algorithmic warfare.
+            </p>
+
+            <!-- Hero Attributes Panel -->
+            <div class="mt-8 flex max-w-md flex-col gap-2 rounded bg-neutral-900/80 p-4 border border-neutral-700 shadow-[inset_0_0_10px_rgba(0,0,0,1)]">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="h-6 w-6 rounded-full bg-red-600 shadow-[0_0_10px_rgba(220,38,38,0.6)]"></div>
+                        <span class="font-bold text-neutral-300">Reliability (STR)</span>
+                    </div>
+                    <span class="font-mono text-neutral-400">120 + 2.5</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="h-6 w-6 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.6)]"></div>
+                        <span class="font-bold text-neutral-300">Execution (AGI)</span>
+                    </div>
+                    <span class="font-mono text-neutral-400">105 + 3.1</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="h-6 w-6 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.6)]"></div>
+                        <span class="font-bold text-neutral-300">Logic & CP (INT)</span>
+                    </div>
+                    <span class="font-mono text-amber-500 font-bold drop-shadow-[0_0_5px_rgba(245,158,11,0.5)]">140 + 4.2</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LORE & SPELLBOOK -->
+<section id="lore" class="border-b border-neutral-800 bg-neutral-950 px-6 py-20 sm:px-8 lg:px-12 relative">
+    <div class="mx-auto max-w-5xl">
+        <h2 class="font-dota text-3xl font-bold tracking-widest text-neutral-100 uppercase mb-12">Abilities & Lore</h2>
+        
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <!-- Spell 1 -->
+            <div class="group relative border border-neutral-800 bg-neutral-900 p-5 transition hover:border-red-600 hover:bg-neutral-800 shadow-xl">
+                <div class="mb-4 h-14 w-14 border-2 border-neutral-700 bg-[url('https://placehold.co/100x100/1a1a1a/ef4444?text=Q')] bg-cover shadow-[0_0_15px_rgba(0,0,0,0.8)] group-hover:border-red-500"></div>
+                <h3 class="font-bold text-neutral-200">Raw Sockets</h3>
+                <p class="mt-1 text-xs font-bold text-amber-500">Target: Backend | Pierces BKB: Yes</p>
+                <p class="mt-3 text-sm text-neutral-400">Bypasses standard `net/http` packages to build lightweight HTTP servers directly over TCP sockets in Go.</p>
+                <!-- Mana/CD -->
+                <div class="mt-4 flex gap-4 text-xs font-bold">
+                    <span class="flex items-center gap-1 text-blue-400"><div class="h-2 w-2 bg-blue-500"></div> 50</span>
+                    <span class="flex items-center gap-1 text-neutral-300">⏱️ 0s</span>
+                </div>
+            </div>
+
+            <!-- Spell 2 -->
+            <div class="group relative border border-neutral-800 bg-neutral-900 p-5 transition hover:border-emerald-500 hover:bg-neutral-800 shadow-xl">
+                <div class="mb-4 h-14 w-14 border-2 border-neutral-700 bg-[url('https://placehold.co/100x100/1a1a1a/10b981?text=W')] bg-cover shadow-[0_0_15px_rgba(0,0,0,0.8)] group-hover:border-emerald-500"></div>
+                <h3 class="font-bold text-neutral-200">Algorithmic Mastery</h3>
+                <p class="mt-1 text-xs font-bold text-neutral-500">Type: Passive</p>
+                <p class="mt-3 text-sm text-neutral-400">Grants permanent resistance against Time Limit Exceeded (TLE) errors. Master of Union-Find and Heap Sort.</p>
+            </div>
+
+            <!-- Spell 3 -->
+            <div class="group relative border border-neutral-800 bg-neutral-900 p-5 transition hover:border-amber-500 hover:bg-neutral-800 shadow-xl">
+                <div class="mb-4 h-14 w-14 border-2 border-neutral-700 bg-[url('https://placehold.co/100x100/1a1a1a/f59e0b?text=E')] bg-cover shadow-[0_0_15px_rgba(0,0,0,0.8)] group-hover:border-amber-500"></div>
+                <h3 class="font-bold text-neutral-200">Svelte Manifestation</h3>
+                <p class="mt-1 text-xs font-bold text-amber-500">Target: Frontend | Range: Global</p>
+                <p class="mt-3 text-sm text-neutral-400">Summons highly reactive UI components compiled directly from a FastAPI backend. Deals immense visual damage.</p>
+            </div>
+
+            <!-- Ultimate -->
+            <div class="group relative border border-neutral-800 bg-neutral-900 p-5 transition hover:border-purple-500 hover:bg-neutral-800 shadow-[0_0_20px_rgba(168,85,247,0.1)]">
+                <div class="mb-4 h-14 w-14 border-2 border-amber-400 bg-[url('https://placehold.co/100x100/1a1a1a/a855f7?text=R')] bg-cover shadow-[0_0_15px_rgba(245,158,11,0.5)]"></div>
+                <h3 class="font-bold text-neutral-200">Agentic Pipeline</h3>
+                <p class="mt-1 text-xs font-bold text-amber-500">Type: Ultimate | Channeling</p>
+                <p class="mt-3 text-sm text-neutral-400">Connects Model Context Protocol (MCP) servers to Sparrow Mail, orchestrating a massive global automated outreach network.</p>
+                <div class="mt-4 flex gap-4 text-xs font-bold">
+                    <span class="flex items-center gap-1 text-blue-400"><div class="h-2 w-2 bg-blue-500"></div> 200</span>
+                    <span class="flex items-center gap-1 text-neutral-300">⏱️ 120s</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ARMORY (WORK) -> Styled like Item Tooltips -->
+<section id="armory" class="bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] bg-neutral-900 px-6 py-20 sm:px-8 lg:px-12">
+    <div class="mx-auto max-w-5xl">
+        <h2 class="font-dota text-3xl font-bold tracking-widest text-neutral-100 uppercase mb-12">The Armory</h2>
+
+        <div class="grid gap-8 md:grid-cols-2">
             
-			<h1 class="text-5xl font-semibold text-slate-950 sm:text-6xl">
-				<span class="relative inline-flex">
-					Software Designer
-					<span class="absolute -bottom-1 left-0 h-1 w-full scale-x-0 rounded-full"></span>
-				</span>
-			</h1>
+            <!-- Item 1 Tooltip -->
+            <div class="flex flex-col border-2 border-neutral-700 bg-neutral-950 shadow-[5px_5px_20px_rgba(0,0,0,0.9)] max-w-md hover:border-neutral-500 transition-colors">
+                <!-- Header -->
+                <div class="border-b border-neutral-800 bg-gradient-to-r from-green-900/40 to-neutral-900 p-4">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h3 class="font-dota text-xl font-bold text-green-400 drop-shadow-md">HTTP Client Workspace</h3>
+                            <p class="text-xs font-bold text-neutral-500">Artifact / Open Source</p>
+                        </div>
+                        <span class="text-amber-500 font-bold text-sm">Cost: Free</span>
+                    </div>
+                </div>
+                <!-- Stats -->
+                <div class="p-4 bg-neutral-900/50">
+                    <p class="text-sm font-bold text-neutral-300"><span class="text-emerald-400">+ 15</span> Testing Speed</p>
+                    <p class="text-sm font-bold text-neutral-300"><span class="text-emerald-400">+ 10</span> Flow Clarity</p>
+                </div>
+                <!-- Description -->
+                <div class="p-4 flex-grow">
+                    <p class="text-sm text-neutral-400 mb-4"><span class="font-bold text-emerald-400">Active: Execute Request</span><br/>Sends organized, noise-free API requests over custom Go protocols.</p>
+                    <p class="text-xs italic text-neutral-600 font-serif">"Forged by one who grew tired of bloated electron apps."</p>
+                </div>
+                <!-- Action -->
+                <div class="p-4 border-t border-neutral-800 bg-neutral-900">
+                    <a href="https://github.com/jain-aadi/http" target="_blank" class="block w-full text-center bg-neutral-800 border border-neutral-600 py-2 text-sm font-bold text-neutral-300 hover:bg-neutral-700 hover:text-white transition">EQUIP (VIEW ON GITHUB)</a>
+                </div>
+            </div>
 
-			<p class="max-w-xl text-lg leading-8 text-slate-600">
-				Building solutions to real-world problems with a knack for design and a passion for learning.
-			</p>
+            <!-- Item 2 Tooltip -->
+            <div class="flex flex-col border-2 border-neutral-700 bg-neutral-950 shadow-[5px_5px_20px_rgba(0,0,0,0.9)] max-w-md hover:border-neutral-500 transition-colors">
+                <div class="border-b border-neutral-800 bg-gradient-to-r from-purple-900/40 to-neutral-900 p-4">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h3 class="font-dota text-xl font-bold text-purple-400 drop-shadow-md">Sparrow Mail System</h3>
+                            <p class="text-xs font-bold text-neutral-500">Mythical Agent</p>
+                        </div>
+                        <span class="text-amber-500 font-bold text-sm">Cost: Scale</span>
+                    </div>
+                </div>
+                <div class="p-4 bg-neutral-900/50">
+                    <p class="text-sm font-bold text-neutral-300"><span class="text-emerald-400">+ 100%</span> Automation Radius</p>
+                </div>
+                <div class="p-4 flex-grow">
+                    <p class="text-sm text-neutral-400 mb-4"><span class="font-bold text-purple-400">Passive: Cold Outreach</span><br/>Automatically routes lead generation data via the Resend API. Acts as a standalone agentic pipeline.</p>
+                    <p class="text-xs italic text-neutral-600 font-serif">"The messenger of the Grand Magus never sleeps."</p>
+                </div>
+                <div class="p-4 border-t border-neutral-800 bg-neutral-900">
+                    <a href="https://github.com/jain-aadi/sparrow-mail" target="_blank" class="block w-full text-center bg-neutral-800 border border-neutral-600 py-2 text-sm font-bold text-neutral-300 hover:bg-neutral-700 hover:text-white transition">EQUIP (VIEW ON GITHUB)</a>
+                </div>
+            </div>
 
-			<div class="flex flex-col gap-4 sm:flex-row sm:items-center">
-				<a href="#contact" class="inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-950/10 transition duration-300 hover:-translate-y-0.5 hover:bg-slate-800">
-					Resume
-				</a>
-				<a href="#contact" class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition duration-300 hover:border-slate-900 hover:text-slate-900">
-					Get in Touch
-				</a>
-			</div>
-
-
-		</div>
-
-		<div id="about" class="lg:w-1/2 flex justify-center relative">
-			
-			<div class="group relative w-80 h-80 rounded-full border border-slate-200 bg-white p-4 shadow-2xl shadow-slate-900/10 transition duration-500 hover:-translate-y-1">
-				<div class="absolute inset-0 rounded-full bg-linear-to-br from-indigo-100 via-white to-slate-100 opacity-90"></div>
-				<div class="relative h-full w-full overflow-hidden rounded-full bg-slate-100">
-					<img src="/aadi.jpeg" alt="Aadi profile" class="h-full w-full object-cover" />
-				</div>
-			</div>
-			<img src="/thatsme.svg" alt="that's me arrow" class="pointer-events-none absolute hidden lg:block h-16 w-auto -left-1 -bottom-12" />
-		</div>
-	</div>
+        </div>
+    </div>
 </section>
 
-<section id="about" class="h-24"></section>
+<!-- FIND MATCH (CONTACT) -->
+<section id="commend" class="relative bg-neutral-950 px-6 py-32 sm:px-8 lg:px-12 text-center border-t border-neutral-800 overflow-hidden">
+    
+    <!-- Ambient Glow behind button -->
+    <div class="absolute left-1/2 top-1/2 h-64 w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-900/20 blur-[80px] pointer-events-none"></div>
 
-<!-- div for some extra space between sections -->
-<!-- <div class="h-24"></div>  -->
+    <div class="relative z-10 mx-auto max-w-2xl">
+        <h2 class="font-dota text-4xl font-bold tracking-widest text-neutral-100 uppercase mb-4">Ready for the Next Match?</h2>
+        <p class="text-neutral-400 mb-12 max-w-md mx-auto">
+            Need a reliable mid-laner for your backend architecture? Commend me or add me to your party.
+        </p>
 
-<section id="projects" class="relative overflow-hidden px-6 py-16 sm:px-8 lg:px-10">
-	<div class="mx-auto max-w-7xl">
-		<div class="grid gap-6 lg:grid-cols-[minmax(260px,340px)_1fr] lg:items-center lg:gap-12">
-			<div class="space-y-4">
-				<h2 class="text-5xl font-semibold text-slate-950 sm:text-[4.4rem]">featured projects</h2>
-			</div>
-
-			<div class="relative bg-transparent overflow-visible mt-6 lg:mt-0">
-				<img src="/right_arrow.svg" alt="Right arrow" class="pointer-events-none absolute right-4 -top-16 z-20 h-5 w-auto lg:block" aria-hidden="true" />
-				<img src="/left_arrow.svg" alt="Left arrow" class="pointer-events-none absolute -left-12 -bottom-16 z-20 h-5 w-auto lg:block" aria-hidden="true" />
-
-				<div class="grid gap-3 justify-items-center md:grid-cols-[repeat(3,minmax(0,15rem))]">
-					<article class="w-full max-w-60 group relative overflow-hidden rounded-[28px] border border-slate-200 bg-slate-200 transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-900/10">
-						<a href="https://github.com/jain-aadi/http" target="_blank" rel="noopener noreferrer" class="block">
-							<div class="relative h-80 overflow-hidden">
-								<img src="https://opengraph.githubassets.com/1/jain-aadi/http" alt="jain-aadi/http preview" loading="lazy" class="absolute inset-0 h-full w-full object-cover object-center" />
-								<div class="absolute inset-0 bg-slate-950/10"></div>
-								<div class="absolute left-4 bottom-4 flex items-center gap-3 rounded-full bg-white/90 px-3 py-1">
-									<img src="https://github.com/jain-aadi.png" alt="avatar" class="h-6 w-6 rounded-full" />
-									<span class="text-sm font-medium text-slate-900">jain-aadi/http</span>
-								</div>
-							</div>
-						</a>
-					</article>
-
-					<article class="w-full max-w-60 group relative overflow-hidden rounded-[28px] border border-slate-200 bg-slate-200 transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-900/10">
-						<a href="https://github.com/jain-aadi/http" target="_blank" rel="noopener noreferrer" class="block">
-							<div class="relative h-80 overflow-hidden">
-								<img src="https://opengraph.githubassets.com/1/jain-aadi/http" alt="jain-aadi/http preview" loading="lazy" class="absolute inset-0 h-full w-full object-cover object-center" />
-								<div class="absolute inset-0 bg-slate-950/10"></div>
-								<div class="absolute left-4 bottom-4 flex items-center gap-3 rounded-full bg-white/90 px-3 py-1">
-									<img src="https://github.com/jain-aadi.png" alt="avatar" class="h-6 w-6 rounded-full" />
-									<span class="text-sm font-medium text-slate-900">jain-aadi/http</span>
-								</div>
-							</div>
-						</a>
-					</article>
-
-					<article class="w-full max-w-60 group relative overflow-hidden rounded-[28px] border border-slate-200 bg-slate-200 transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-900/10">
-						<a href="https://github.com/jain-aadi/http" target="_blank" rel="noopener noreferrer" class="block">
-							<div class="relative h-80 overflow-hidden">
-								<img src="https://opengraph.githubassets.com/1/jain-aadi/http" alt="jain-aadi/http preview" loading="lazy" class="absolute inset-0 h-full w-full object-cover object-center" />
-								<div class="absolute inset-0 bg-slate-950/10"></div>
-								<div class="absolute left-4 bottom-4 flex items-center gap-3 rounded-full bg-white/90 px-3 py-1">
-									<img src="https://github.com/jain-aadi.png" alt="avatar" class="h-6 w-6 rounded-full" />
-									<span class="text-sm font-medium text-slate-900">jain-aadi/http</span>
-								</div>
-							</div>
-						</a>
-					</article>
-				</div>
-
-				
-			</div>
-		</div>
-	</div>
+        <!-- The iconic glowing green FIND MATCH button -->
+        <a href="mailto:jainaadi333@gmail.com" class="inline-block group relative">
+            <div class="absolute -inset-1 rounded-sm bg-gradient-to-r from-emerald-600 to-emerald-400 opacity-70 blur transition duration-200 group-hover:opacity-100 group-hover:duration-200"></div>
+            <div class="relative flex items-center justify-center border-y-2 border-emerald-300 bg-gradient-to-b from-emerald-500 to-emerald-700 px-16 py-5 shadow-[inset_0_2px_10px_rgba(255,255,255,0.3)]">
+                <span class="font-dota text-2xl font-bold tracking-[0.2em] text-neutral-100 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] uppercase">
+                    Find Match
+                </span>
+            </div>
+        </a>
+        
+        <p class="mt-6 text-xs font-bold text-neutral-600 uppercase tracking-widest">Server: Delhi, India (Ping: 5ms)</p>
+    </div>
 </section>
-
-<!-- div for some extra space between sections -->
-<!-- <div class="h-24"></div>  -->
-
-<section id="contact" class="relative overflow-hidden px-6 py-16 sm:px-8 lg:px-10">
-	<div class="mx-auto max-w-7xl">
-		<div class="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-			<div class="space-y-8 lg:pr-8">
-				<p class="text-3xl font-semibold text-slate-800">Got ideas? <br> I got the skills.</p>
-				<div class="flex items-center gap-3 text-slate-500">
-					<span class="block h-px w-36 bg-slate-300"></span>
-					<span class="text-sm uppercase tracking-[0.3em]">send a note</span>
-					<span class="block h-px w-36 bg-slate-300"></span>
-				</div>
-				<h2 class="text-[4.2rem] font-semibold leading-[0.95] text-slate-950">Let's team up</h2>
-			</div>
-
-			<div class="relative">
-				<div class="rounded-4xl border border-slate-200 bg-white p-8 shadow-2xl shadow-slate-900/10 sm:p-10">
-					<form class="space-y-5">
-						<div>
-							<label for="name" class="block text-sm font-semibold text-slate-600">Name</label>
-							<input id="name" type="text" placeholder="Name" class="mt-3 w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-900 focus:bg-white" />
-						</div>
-						<div>
-							<label for="email" class="block text-sm font-semibold text-slate-600">Email</label>
-							<input id="email" type="email" placeholder="Email" class="mt-3 w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-900 focus:bg-white" />
-						</div>
-						<div>
-							<label for="message" class="block text-sm font-semibold text-slate-600">Body</label>
-							<textarea id="message" rows="6" placeholder="Body" class="mt-3 w-full rounded-[28px] border border-slate-200 bg-slate-50 px-4 py-4 text-sm text-slate-900 outline-none transition focus:border-slate-900 focus:bg-white"></textarea>
-						</div>
-						<button type="submit" class="inline-flex w-full items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition duration-300 hover:bg-slate-800">Send message</button>
-					</form>
-				</div>
-				
-			</div>
-		</div>
-	</div>
-</section>
-
