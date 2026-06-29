@@ -32,7 +32,7 @@
 
             <!-- Net Worth / Gold CTA -->
             <div class="flex items-center gap-4">
-                <a href="#resume" class="flex items-center gap-2 rounded border border-amber-600/50 bg-gradient-to-b from-amber-600/20 to-neutral-900 px-4 py-1.5 text-sm font-bold text-amber-500 transition hover:border-amber-400 hover:brightness-125 hover:shadow-[0_0_15px_rgba(245,158,11,0.4)]">
+                <a href="https://drive.google.com/file/d/18R4WFKFWyoyLzBlgGqtro5wixCuaAH_O/view?usp=sharing" class="flex items-center gap-2 rounded border border-amber-600/50 bg-gradient-to-b from-amber-600/20 to-neutral-900 px-4 py-1.5 text-sm font-bold text-amber-500 transition hover:border-amber-400 hover:brightness-125 hover:shadow-[0_0_15px_rgba(245,158,11,0.4)]">
                     <span class="h-3 w-3 rounded-full bg-amber-400 shadow-[0_0_5px_#fbbf24]"></span>
                     VIEW SCROLL
                 </a>
