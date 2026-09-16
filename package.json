@@ -21,6 +21,7 @@
 		"@sveltejs/vite-plugin-svelte": "^6.2.4",
 		"@tailwindcss/vite": "^4.1.18",
 		"@types/node": "^24",
+		"@types/three": "^0.186.0",
 		"eslint": "^10.0.3",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.15.2",
@@ -36,8 +37,6 @@
 		"vite": "^7.3.1"
 	},
 	"dependencies": {
-		"@tsparticles/engine": "^3.9.1",
-		"@tsparticles/slim": "^3.9.1",
-		"tsparticles": "^3.9.1"
+		"three": "^0.186.0"
 	}
 }
