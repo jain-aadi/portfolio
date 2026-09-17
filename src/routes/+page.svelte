@@ -36,22 +36,40 @@
 	<meta name="description" content={profile.role} />
 	<meta name="robots" content="index,follow" />
 	<meta name="theme-color" content="#064e7a" />
+	<link rel="canonical" href={profile.siteUrl} />
 	<meta property="og:type" content="website" />
+	<meta property="og:url" content={profile.siteUrl} />
 	<meta property="og:title" content={`${profile.name} — Full-stack engineer`} />
 	<meta property="og:description" content={profile.intro} />
-	<meta name="twitter:card" content="summary" />
+	<meta property="og:image" content={`${profile.siteUrl}${profile.socialImage}`} />
+	<meta property="og:image:width" content="1728" />
+	<meta property="og:image:height" content="912" />
+	<meta
+		property="og:image:alt"
+		content="Abstract blue geometric orb from Aaditya Jain's portfolio"
+	/>
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={`${profile.name} — Full-stack engineer`} />
+	<meta name="twitter:description" content={profile.intro} />
+	<meta name="twitter:image" content={`${profile.siteUrl}${profile.socialImage}`} />
+	<meta
+		name="twitter:image:alt"
+		content="Abstract blue geometric orb from Aaditya Jain's portfolio"
+	/>
 	<script type="application/ld+json">
 		{
 			"@context": "https://schema.org",
 			"@type": "Person",
 			"name": "Aaditya Jain",
+			"url": "https://portfolio-one-black-33.vercel.app",
+			"image": "https://portfolio-one-black-33.vercel.app/portfolio-social.png",
 			"jobTitle": "Full-stack engineer",
 			"description": "Full-stack engineer building practical web products and backend systems.",
 			"email": "jainaadi333@gmail.com",
 			"sameAs": [
 				"https://github.com/jain-aadi",
 				"https://www.linkedin.com/in/aaditya-jain-62baa12aa/",
-				"https://leetcode.com/u/jain_aadi/"
+				"https://x.com/aadi_jain333"
 			]
 		}
 	</script>
@@ -83,7 +101,7 @@
 <section class="work section" id="work">
 	<header class="section-heading">
 		<p>01 / Selected work</p>
-		<h2>Two projects.<br />The actual decisions.</h2>
+		<h2>Selected work.<br />The actual decisions.</h2>
 	</header>
 	<div class="projects">
 		{#each projects as project (project.title)}
@@ -223,7 +241,7 @@
 			{#each profile.links as link (link.href)}<a href={link.href} target="_blank" rel="noreferrer"
 					>{link.label} <span aria-hidden="true">↗</span></a
 				>{/each}<a href={profile.resume} target="_blank" rel="noreferrer"
-				>View résumé <span aria-hidden="true">↗</span></a
+				>View Resume <span aria-hidden="true">↗</span></a
 			>
 		</nav>
 	</div>

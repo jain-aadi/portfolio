@@ -4,6 +4,8 @@ export const profile = {
 	role: 'Full-stack engineer who turns product needs into reliable software.',
 	intro:
 		'I turn product needs into interfaces, services and automation—choosing and learning the tools the problem actually needs.',
+	siteUrl: 'https://portfolio-one-black-33.vercel.app',
+	socialImage: '/portfolio-social.png',
 	location: 'Delhi, India',
 	heroProof: [
 		{ label: 'Clarify', detail: 'Turn an open need into a focused plan' },
@@ -27,7 +29,7 @@ export const profile = {
 	links: [
 		{ label: 'GitHub', href: 'https://github.com/jain-aadi' },
 		{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/aaditya-jain-62baa12aa/' },
-		{ label: 'LeetCode', href: 'https://leetcode.com/u/jain_aadi/' }
+		{ label: 'X', href: 'https://x.com/aadi_jain333' }
 	]
 };
 

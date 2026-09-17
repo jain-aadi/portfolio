@@ -126,7 +126,9 @@
 				>
 			{/each}
 		</div>
-		<a class="resume-link" href={profile.resume} target="_blank" rel="noreferrer">View résumé ↗</a>
+		<a class="resume-link" href={profile.resume} target="_blank" rel="noreferrer"
+			><span>View Resume</span><b aria-hidden="true">↗</b></a
+		>
 		<button
 			class="menu-button"
 			type="button"
@@ -162,7 +164,7 @@
 				target="_blank"
 				rel="noreferrer"
 				onclick={() => closeMenu(false)}
-				onkeydown={trapMenuFocus}><span>05</span>View résumé</a
+				onkeydown={trapMenuFocus}><span>05</span>View Resume</a
 			>
 		</nav>
 	{/if}
@@ -195,7 +197,7 @@
 					>
 				{/each}
 				<a href={profile.resume} target="_blank" rel="noreferrer"
-					>View résumé<span aria-hidden="true">↗</span></a
+					>View Resume<span aria-hidden="true">↗</span></a
 				>
 			</nav>
 		</div>

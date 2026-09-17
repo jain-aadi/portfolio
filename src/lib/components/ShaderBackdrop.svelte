@@ -80,10 +80,12 @@
 		let frame = 0;
 		let inViewport = true;
 		let running = false;
-		const clock = new THREE.Clock();
+		const timer = new THREE.Timer();
+		timer.connect(document);
 		const render = () => {
 			running = true;
-			uniforms.uTime.value = reducedMotion ? 0 : clock.getElapsedTime();
+			timer.update();
+			uniforms.uTime.value = reducedMotion ? 0 : timer.getElapsed();
 			uniforms.uPointer.value.lerp(pointerTarget, 0.035);
 			subject.rotation.y += reducedMotion ? 0 : 0.0015;
 			subject.rotation.x = uniforms.uPointer.value.y * 0.18;
@@ -123,6 +125,7 @@
 			document.removeEventListener('visibilitychange', onVisibility);
 			geometry.dispose();
 			material.dispose();
+			timer.dispose();
 			renderer.dispose();
 		};
 	});
