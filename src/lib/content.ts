@@ -43,6 +43,8 @@ export const projects = [
 		problem:
 			'Job APIs return similar information in different shapes. A provider going down should not stop the rest of the search.',
 		outcome: 'Normalises, deduplicates and caches search results before a user reviews them.',
+		role: 'Independent end-to-end build',
+		proof: '3 job providers normalised into one search flow.',
 		stack: ['Python', 'OpenAI-compatible APIs', 'Provider adapters', 'Local storage'],
 		map: ['Profile', '3 sources', 'Deduplicate', 'Shortlist'],
 		notes: [
@@ -64,6 +66,8 @@ export const projects = [
 			'Frameworks hide request boundaries, connection lifecycles and streaming. This was a way to work through those pieces directly.',
 		outcome:
 			'A working server with explicit parser states, basic keep-alive and a streaming HTTPBin route.',
+		role: 'Independent systems-learning build',
+		proof: '4 explicit stages from TCP connection to HTTP response.',
 		stack: ['Go', 'net.Listen', 'TCP', 'State machine'],
 		map: ['TCP', 'Request line', 'Headers', 'Response'],
 		notes: [

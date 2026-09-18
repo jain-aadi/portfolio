@@ -16,8 +16,8 @@
 	let focusBeforeMenu: HTMLElement | null = null;
 	const navigation = [
 		{ id: 'work', label: 'Work' },
-		{ id: 'experience', label: 'Experience' },
 		{ id: 'skills', label: 'Skills' },
+		{ id: 'experience', label: 'Experience' },
 		{ id: 'contact', label: 'Contact' }
 	];
 
@@ -30,13 +30,18 @@
 
 	onMount(() => {
 		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-		const scrollToHash = (hash: string) => {
+		const previousScrollRestoration = history.scrollRestoration;
+		history.scrollRestoration = 'manual';
+		const scrollToHash = (hash: string, moveFocus = false) => {
 			const target = document.getElementById(hash.slice(1));
 			if (!target) return false;
 			target.scrollIntoView({
 				behavior: prefersReducedMotion.matches ? 'auto' : 'smooth',
 				block: 'start'
 			});
+			if (moveFocus) {
+				requestAnimationFrame(() => target.focus({ preventScroll: true }));
+			}
 			return true;
 		};
 		const onDocumentClick = (event: MouseEvent) => {
@@ -51,10 +56,11 @@
 			const link = (event.target as Element | null)?.closest<HTMLAnchorElement>('a[href^="#"]');
 			if (!link || link.target || link.getAttribute('href') === '#') return;
 			const hash = link.getAttribute('href');
-			if (!hash || !scrollToHash(hash)) return;
+			if (!hash || !scrollToHash(hash, hash === '#main')) return;
 			event.preventDefault();
-			history.pushState(null, '', hash);
+			if (history.state?.hash !== hash) history.pushState({ hash }, '', hash);
 		};
+		const onPopState = () => scrollToHash(location.hash || '#home');
 		const sections = navigation
 			.map(({ id }) => document.getElementById(id))
 			.filter((section): section is HTMLElement => section !== null);
@@ -72,11 +78,14 @@
 			if (event.key === 'Escape' && menuOpen) closeMenu();
 		};
 		window.addEventListener('keydown', onKeydown);
+		window.addEventListener('popstate', onPopState);
 		document.addEventListener('click', onDocumentClick);
 		return () => {
 			observer.disconnect();
 			window.removeEventListener('keydown', onKeydown);
+			window.removeEventListener('popstate', onPopState);
 			document.removeEventListener('click', onDocumentClick);
+			history.scrollRestoration = previousScrollRestoration;
 			document.body.classList.remove('menu-open');
 		};
 	});
@@ -145,6 +154,7 @@
 		<button
 			class="menu-scrim"
 			type="button"
+			tabindex="-1"
 			aria-label="Close navigation"
 			onclick={() => closeMenu()}
 		></button>
@@ -170,7 +180,7 @@
 	{/if}
 </header>
 
-<main id="main" bind:this={mainElement}>{@render children()}</main>
+<main id="main" tabindex="-1" bind:this={mainElement}>{@render children()}</main>
 
 <footer class="site-footer" bind:this={footerElement}>
 	<div class="footer-main">

@@ -1,6 +1,5 @@
 <script lang="ts">
 	/* eslint-disable svelte/no-navigation-without-resolve -- content data contains external and static asset URLs */
-	import { onMount, type Component } from 'svelte';
 	import {
 		capabilities,
 		experience,
@@ -9,26 +8,6 @@
 		projects,
 		workingStyle
 	} from '$lib/content';
-
-	let HeroScene = $state<Component | null>(null);
-
-	onMount(() => {
-		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-		const connection = navigator as Navigator & {
-			connection?: { effectiveType?: string; saveData?: boolean };
-		};
-		if (
-			connection.connection?.saveData ||
-			['slow-2g', '2g'].includes(connection.connection?.effectiveType ?? '')
-		)
-			return;
-		const timer = window.setTimeout(() => {
-			void import('$lib/components/ShaderBackdrop.svelte').then((module) => {
-				HeroScene = module.default;
-			});
-		}, 450);
-		return () => window.clearTimeout(timer);
-	});
 </script>
 
 <svelte:head>
@@ -80,8 +59,6 @@
 	<svg class="hero-curve" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true"
 		><path d="M-100 570 C 260 830 520 780 735 590 S 1120 250 1540 380" /></svg
 	>
-	<div class="hero-fallback" aria-hidden="true"></div>
-	{#if HeroScene}<HeroScene />{/if}
 	<div class="hero-copy">
 		<p class="role">Full-stack engineer · Delhi</p>
 		<h1><span>USEFUL PRODUCTS.</span><span>RELIABLE</span><span>SYSTEMS.</span></h1>
@@ -117,13 +94,23 @@
 					<div class="project-story">
 						<h3>{project.title}</h3>
 						<p>{project.summary}</p>
+						<dl class="project-evidence">
+							<div>
+								<dt>Role</dt>
+								<dd>{project.role}</dd>
+							</div>
+							<div>
+								<dt>Proof point</dt>
+								<dd>{project.proof}</dd>
+							</div>
+						</dl>
 						<div class="project-outcome">
 							<span>Result</span>
 							<strong>{project.outcome}</strong>
 						</div>
 					</div>
-					<div class="project-diagram">
-						<p>System flow</p>
+					<figure class="project-diagram">
+						<figcaption>Architecture snapshot</figcaption>
 						<ol class="system-map" aria-label={`${project.title} flow`}>
 							{#each project.map as step, index (step)}
 								<li class:entry={index === 0} class:exit={index === project.map.length - 1}>
@@ -131,7 +118,7 @@
 								</li>
 							{/each}
 						</ol>
-					</div>
+					</figure>
 				</div>
 				<details class="project-notes">
 					<summary>Read the build notes <span>+</span></summary>
