@@ -125,7 +125,6 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
 	<nav class="nav-shell" aria-label="Primary navigation">
-		<a class="brand" href="#home" onclick={() => closeMenu()}>Aaditya Jain</a>
 		<div class="desktop-nav">
 			{#each navigation as item (item.id)}
 				<a
@@ -135,9 +134,6 @@
 				>
 			{/each}
 		</div>
-		<a class="resume-link" href={profile.resume} target="_blank" rel="noreferrer"
-			><span>View Resume</span><b aria-hidden="true">↗</b></a
-		>
 		<button
 			class="menu-button"
 			type="button"

@@ -11,14 +11,14 @@
 </script>
 
 <svelte:head>
-	<title>{profile.name} — Full-stack engineer</title>
+	<title>{profile.name} - Full-stack engineer</title>
 	<meta name="description" content={profile.role} />
 	<meta name="robots" content="index,follow" />
 	<meta name="theme-color" content="#064e7a" />
 	<link rel="canonical" href={profile.siteUrl} />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={profile.siteUrl} />
-	<meta property="og:title" content={`${profile.name} — Full-stack engineer`} />
+	<meta property="og:title" content={`${profile.name} - Full-stack engineer`} />
 	<meta property="og:description" content={profile.intro} />
 	<meta property="og:image" content={`${profile.siteUrl}${profile.socialImage}`} />
 	<meta property="og:image:width" content="1728" />
@@ -28,7 +28,7 @@
 		content="Abstract blue geometric orb from Aaditya Jain's portfolio"
 	/>
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content={`${profile.name} — Full-stack engineer`} />
+	<meta name="twitter:title" content={`${profile.name} - Full-stack engineer`} />
 	<meta name="twitter:description" content={profile.intro} />
 	<meta name="twitter:image" content={`${profile.siteUrl}${profile.socialImage}`} />
 	<meta
@@ -60,10 +60,15 @@
 		><path d="M-100 570 C 260 830 520 780 735 590 S 1120 250 1540 380" /></svg
 	>
 	<div class="hero-copy">
-		<p class="role">Full-stack engineer · Delhi</p>
+		<p class="role">Aaditya Jain - Full-stack engineer - Delhi</p>
 		<h1><span>USEFUL PRODUCTS.</span><span>RELIABLE</span><span>SYSTEMS.</span></h1>
 	</div>
-	<p class="hero-intro">{profile.intro}</p>
+	<div class="hero-intro">
+		<p>{profile.intro}</p>
+		<a class="hero-resume" href={profile.resume} target="_blank" rel="noreferrer"
+			>Resume (PDF) <span aria-hidden="true">↗</span></a
+		>
+	</div>
 	<div class="hero-actions">
 		<a class="hero-cta" href="#work">View selected work <span>↓</span></a>
 		<a class="hero-cta quiet" href="#contact">Discuss a project <span>↗</span></a>

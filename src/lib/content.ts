@@ -3,7 +3,7 @@ export const profile = {
 	shortName: 'AJ',
 	role: 'Full-stack engineer who turns product needs into reliable software.',
 	intro:
-		'I turn product needs into interfaces, services and automation—choosing and learning the tools the problem actually needs.',
+		'I turn product needs into interfaces, services and automation - choosing and learning the tools the problem actually needs.',
 	siteUrl: 'https://portfolio-one-black-33.vercel.app',
 	socialImage: '/portfolio-social.png',
 	location: 'Delhi, India',
@@ -86,7 +86,7 @@ export const experience = [
 	{
 		company: 'Gravity',
 		role: 'AI Agent Builder Intern',
-		period: 'Aug 2026 — Present',
+		period: 'Aug 2026 - Present',
 		stack: ['Activepieces', 'LLM orchestration', 'Slack API', 'GitHub API'],
 		summary: 'I build agent workflows for release communication and internal review loops.',
 		highlights: [
@@ -97,7 +97,7 @@ export const experience = [
 	{
 		company: 'Sage Learning',
 		role: 'Full-Stack Developer Intern',
-		period: 'Aug 2026 — Present',
+		period: 'Aug 2026 - Present',
 		stack: ['Angular', 'Azure Functions', 'TypeScript', 'Make.com'],
 		summary: 'I work on Azure-backed product features and Angular interfaces for internal teams.',
 		highlights: [
