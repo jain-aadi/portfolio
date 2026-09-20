@@ -61,20 +61,23 @@ export const projects = [
 		index: '02',
 		title: 'HTTP server in Go',
 		type: 'TCP and request-parsing exercise',
-		summary: 'A small HTTP/1.1 server built on Go TCP primitives rather than net/http.',
+		summary:
+			'A small HTTP/1.1 server built on Go TCP primitives rather than net/http, benchmarked under concurrent load.',
 		problem:
 			'Frameworks hide request boundaries, connection lifecycles and streaming. This was a way to work through those pieces directly.',
 		outcome:
 			'A working server with explicit parser states, basic keep-alive and a streaming HTTPBin route.',
 		role: 'Independent systems-learning build',
-		proof: '4 explicit stages from TCP connection to HTTP response.',
+		proof: '10,000 requests at 200 concurrent connections completed successfully.',
 		stack: ['Go', 'net.Listen', 'TCP', 'State machine'],
 		repository: 'jain-aadi/http',
+		demoVideo: '/http-server-benchmark.mp4',
 		notes: [
 			'Accepted TCP connections with net.Listen and handled each one in its own goroutine.',
 			'Parsed request lines, headers and Content-Length bodies through distinct parser states.',
 			'Added basic keep-alive behavior for multiple requests on a connection.',
-			'Built /httpbin/stream/<N> to forward and stream an upstream response.'
+			'Built /httpbin/stream/<N> to forward and stream an upstream response.',
+			'Handled a benchmark of 10,000 requests with 200 concurrent connections successfully.'
 		],
 		tradeoff:
 			'This is a learning implementation, not a replacement for Go’s production HTTP server.',

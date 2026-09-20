@@ -642,6 +642,33 @@ summary:focus-visible {
 	transform: translateY(-0.2rem);
 }
 
+.project-demo {
+	align-self: stretch;
+	min-width: 0;
+	margin: 0;
+	border: 1px solid #d0d7de;
+	background: #07111a;
+	box-shadow: 0 0.85rem 1.5rem rgba(8, 60, 92, 0.12);
+}
+
+.project-demo video {
+	display: block;
+	width: 100%;
+	aspect-ratio: 39 / 19;
+	background: #07111a;
+}
+
+.project-demo p {
+	margin: 0;
+	padding: 0.8rem 1rem;
+	border-top: 1px solid #d0d7de;
+	background: #f6f8fa;
+	color: #24292f;
+	font: 500 0.65rem/1.45 var(--mono);
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
 .github-preview-meta {
 	display: flex;
 	align-items: center;

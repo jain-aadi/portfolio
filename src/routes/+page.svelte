@@ -114,18 +114,33 @@
 							<strong>{project.outcome}</strong>
 						</div>
 					</div>
-					<a
-						class="github-preview"
-						href={project.href}
-						target="_blank"
-						rel="noreferrer"
-						aria-label={`Open ${project.repository} on GitHub`}
-					>
-						<span class="github-preview-meta"><b>GitHub</b><span>Public repository</span></span>
-						<strong class="github-preview-name">{project.repository}</strong>
-						<span class="github-preview-description">{project.summary}</span>
-						<span class="github-preview-action">View repository <b aria-hidden="true">↗</b></span>
-					</a>
+					{#if project.demoVideo}
+						<div class="project-demo">
+							<video
+								controls
+								playsinline
+								preload="metadata"
+								poster="/http-server-benchmark-poster.jpg"
+							>
+								<source src={project.demoVideo} type="video/mp4" />
+								Your browser does not support embedded video.
+							</video>
+							<p>Load-test recording: 10,000 requests / 200 concurrent connections.</p>
+						</div>
+					{:else}
+						<a
+							class="github-preview"
+							href={project.href}
+							target="_blank"
+							rel="noreferrer"
+							aria-label={`Open ${project.repository} on GitHub`}
+						>
+							<span class="github-preview-meta"><b>GitHub</b><span>Public repository</span></span>
+							<strong class="github-preview-name">{project.repository}</strong>
+							<span class="github-preview-description">{project.summary}</span>
+							<span class="github-preview-action">View repository <b aria-hidden="true">↗</b></span>
+						</a>
+					{/if}
 				</div>
 				<details class="project-notes">
 					<summary>Read the build notes <span>+</span></summary>
