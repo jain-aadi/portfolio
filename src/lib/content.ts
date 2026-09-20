@@ -46,7 +46,7 @@ export const projects = [
 		role: 'Independent end-to-end build',
 		proof: '3 job providers normalised into one search flow.',
 		stack: ['Python', 'OpenAI-compatible APIs', 'Provider adapters', 'Local storage'],
-		map: ['Profile', '3 sources', 'Deduplicate', 'Shortlist'],
+		repository: 'jain-aadi/get_placed',
 		notes: [
 			'Normalised Adzuna, Jooble and Remotive results into one job model.',
 			'Continued searching and logged the error when an individual provider failed.',
@@ -69,7 +69,7 @@ export const projects = [
 		role: 'Independent systems-learning build',
 		proof: '4 explicit stages from TCP connection to HTTP response.',
 		stack: ['Go', 'net.Listen', 'TCP', 'State machine'],
-		map: ['TCP', 'Request line', 'Headers', 'Response'],
+		repository: 'jain-aadi/http',
 		notes: [
 			'Accepted TCP connections with net.Listen and handled each one in its own goroutine.',
 			'Parsed request lines, headers and Content-Length bodies through distinct parser states.',

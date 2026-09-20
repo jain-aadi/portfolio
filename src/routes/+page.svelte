@@ -114,16 +114,18 @@
 							<strong>{project.outcome}</strong>
 						</div>
 					</div>
-					<figure class="project-diagram">
-						<figcaption>Architecture snapshot</figcaption>
-						<ol class="system-map" aria-label={`${project.title} flow`}>
-							{#each project.map as step, index (step)}
-								<li class:entry={index === 0} class:exit={index === project.map.length - 1}>
-									<span>0{index + 1}</span><strong>{step}</strong>
-								</li>
-							{/each}
-						</ol>
-					</figure>
+					<a
+						class="github-preview"
+						href={project.href}
+						target="_blank"
+						rel="noreferrer"
+						aria-label={`Open ${project.repository} on GitHub`}
+					>
+						<span class="github-preview-meta"><b>GitHub</b><span>Public repository</span></span>
+						<strong class="github-preview-name">{project.repository}</strong>
+						<span class="github-preview-description">{project.summary}</span>
+						<span class="github-preview-action">View repository <b aria-hidden="true">↗</b></span>
+					</a>
 				</div>
 				<details class="project-notes">
 					<summary>Read the build notes <span>+</span></summary>

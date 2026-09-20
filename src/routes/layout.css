@@ -565,7 +565,6 @@ summary:focus-visible {
 
 .project-evidence dt,
 .project-outcome > span,
-.project-diagram figcaption,
 .stack-label {
 	font: 500 0.62rem/1.4 var(--mono);
 	letter-spacing: 0.08em;
@@ -617,88 +616,76 @@ summary:focus-visible {
 	margin-right: 0.3rem;
 }
 
-.project-diagram {
+.github-preview {
 	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-self: stretch;
 	min-width: 0;
-	padding: clamp(1rem, 1.75vw, 1.5rem);
-	border: 1px solid rgba(8, 60, 92, 0.16);
+	min-height: 19rem;
+	padding: clamp(1.25rem, 2vw, 1.75rem);
+	border: 1px solid #d0d7de;
 	background:
-		linear-gradient(135deg, rgba(255, 255, 255, 0.72), transparent 48%), rgba(207, 239, 244, 0.62);
-	color: var(--ink);
-	box-shadow: 0 1rem 2rem rgba(8, 60, 92, 0.08);
+		linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(246, 248, 250, 0.92)), #f6f8fa;
+	box-shadow: 0 1rem 2rem rgba(8, 60, 92, 0.1);
+	color: #24292f;
 	overflow: hidden;
+	transition:
+		border-color 200ms var(--ease),
+		box-shadow 200ms var(--ease),
+		transform 200ms var(--ease);
 }
 
-.project-diagram::before {
-	content: '';
-	position: absolute;
-	inset: 0;
-	opacity: 0.34;
-	background-image:
-		linear-gradient(var(--line-light) 1px, transparent 1px),
-		linear-gradient(90deg, var(--line-light) 1px, transparent 1px);
-	background-size: 2rem 2rem;
+.github-preview:hover {
+	border-color: #57606a;
+	box-shadow: 0 1.35rem 2.25rem rgba(8, 60, 92, 0.16);
+	transform: translateY(-0.2rem);
 }
 
-.project-diagram figcaption {
-	position: relative;
-	z-index: 1;
-	margin: 0 0 1.25rem;
-	color: var(--blue-deep);
-}
-
-.system-map {
-	position: relative;
-	z-index: 1;
-	display: grid;
-	gap: 0.5rem;
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-.system-map li {
-	position: relative;
-	display: grid;
-	grid-template-columns: 2.25rem 1fr;
-	gap: 0.75rem;
+.github-preview-meta {
+	display: flex;
 	align-items: center;
-	padding: 0.55rem 0.65rem;
-	border: 1px solid rgba(8, 60, 92, 0.16);
-	background: rgba(255, 255, 255, 0.48);
+	justify-content: space-between;
+	gap: 1rem;
+	font: 500 0.64rem/1.4 var(--mono);
+	letter-spacing: 0.04em;
 }
 
-.system-map li:not(:last-child)::after {
-	content: '↓';
-	position: absolute;
-	bottom: -1rem;
-	left: 1.25rem;
-	z-index: 2;
-	color: var(--blue-deep);
-}
-
-.system-map span {
-	color: var(--blue-deep);
-	font: 500 0.62rem/1 var(--mono);
-}
-
-.system-map strong {
-	font-size: clamp(0.9rem, 1.15vw, 1.1rem);
+.github-preview-meta b {
+	font-family: var(--font);
+	font-size: 0.9rem;
 	letter-spacing: -0.02em;
 }
 
-.system-map .entry,
-.system-map .exit {
-	border-color: color-mix(in srgb, var(--yellow) 70%, var(--line-light));
+.github-preview-meta span {
+	color: #57606a;
 }
 
-.system-map .exit {
-	background: var(--yellow);
-	color: var(--ink);
+.github-preview-name {
+	margin-top: clamp(2.5rem, 5vw, 4.5rem);
+	font-size: clamp(1.45rem, 2.4vw, 2.25rem);
+	letter-spacing: -0.05em;
+	line-height: 1;
 }
 
-.system-map .exit span {
-	color: var(--ink);
+.github-preview-description {
+	max-width: 29rem;
+	margin-top: 1rem;
+	color: #57606a;
+	font-size: 0.9rem;
+	line-height: 1.5;
+}
+
+.github-preview-action {
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-top: auto;
+	padding-top: 1rem;
+	border-top: 1px solid #d8dee4;
+	font: 500 0.68rem/1.4 var(--mono);
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
 }
 
 .experience {
@@ -1567,17 +1554,6 @@ summary:focus-visible {
 	.hero h1 {
 		font-size: 11.8vw;
 	}
-
-	.system-map li {
-		grid-template-columns: 1.7rem 1fr;
-		gap: 0.45rem;
-		padding: 0.5rem;
-	}
-
-	.system-map li:not(:last-child)::after {
-		bottom: -1.05rem;
-		left: 0.8rem;
-	}
 }
 
 @media (max-width: 48rem) {
@@ -1609,7 +1585,6 @@ summary:focus-visible {
 }
 
 @media (pointer: coarse) {
-	.project:hover .system-map span,
 	.email:hover span,
 	.hero-cta:hover span {
 		transform: none;
